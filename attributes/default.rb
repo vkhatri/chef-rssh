@@ -7,6 +7,7 @@ default['rssh'] = {
   'user' => {
 #    'user_name' : "options"
 #e.g.'user_name' : "011:00001:/usr/local/my chroot"
+# Alternatively, you should use the `rssh_user` LWRP
   },
   'options' => {
     'logfacility' => 'LOG_USER',

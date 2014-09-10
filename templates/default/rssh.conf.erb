@@ -54,20 +54,21 @@
 #user = "rudy:011:00001:/usr/local/my chroot"  # neither do comments at line end
 
 # Options
-<% node.rssh.options.each do |name,value| %>
-<%=name%> = <%=value%>
-<%end%>
+<% @options.each do |name, value| %>
+<%= name %> = <%= value %>
+<% end %>
 
 # Allow 
-<% node.rssh.allow.each do |service| %>
-allow<%=service%>
-<%end%>
+<% @allow.each do |service| %>
+allow<%= service %>
+<% end %>
 
 # User Specific configuration
 # format:
 # user = "rudy:011:00001:/usr/local/my chroot"
 
-<% node.rssh.user.each do |user,option| %>
-user = "<%=user%>:<%=option%>"
-<%end%>
-
+<% @users.each do |user, options|
+     if "" != user %>
+user = "<%= user %>:<%= options %>"
+<%   end
+   end if @users %>

@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: rssh
-# Recipe:: default
+# Resource:: user
 #
-# Copyright 2014, Virender Khatri
+# Copyright 2014, Dan Fruehauf
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-package 'rssh'
+actions :add, :remove
+default_action :add
 
-# Generate the template anyway
-rssh_user "" do
-  options ""
-end
+attribute :name, :kind_of => String, :name_attribute => true
+attribute :options, :kind_of => String, :default => ""
+attribute :config_path, :kind_of => String, :default => '/etc/rssh.conf'
