@@ -7,12 +7,9 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.3'
 provides         'rssh::default'
 
-supports 'debian'
-supports 'ubuntu'
-supports 'centos'
-supports 'redhat'
-supports 'amazon'
-supports 'fedora'
+%w{ubuntu centos redhat fedora amazon}.each do |os|
+  supports os
+end
 
 recipe 'rssh::default', 'Installs and configures rssh'
 
