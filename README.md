@@ -32,6 +32,21 @@ default['rssh'] = {
 }
 ```
 
+LWRP
+----
+You could and should use the user LWRP if you want to define rssh users from
+various cookbooks around chef such as:
+
+```rb
+rssh_user "some_user" do
+  options "some_options"
+end
+
+rssh_user "another_user" do
+  options "more options"
+end
+```
+
 Usage
 -----
 #### rssh::default
@@ -57,7 +72,7 @@ Contributing
 
 License and Authors
 -------------------
-Authors:: vkhatri
+Authors:: vkhatri, Dan Fruehauf
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
