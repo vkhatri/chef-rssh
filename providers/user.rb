@@ -17,12 +17,16 @@
 # limitations under the License.
 #
 
+def whyrun_supported?
+  true
+end
+
 action :add do
-  write_conf
+  new_resource.updated_by_last_action(write_conf)
 end
 
 action :remove do
-  write_conf
+  new_resource.updated_by_last_action(write_conf)
 end
 
 protected
@@ -44,7 +48,7 @@ protected
       )
     end
 
-    new_resource.updated_by_last_action(t.updated?)
+    return t.updated?
   end
 
   # The list of rssh user resources in the resource collection
