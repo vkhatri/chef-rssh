@@ -58,7 +58,25 @@ various cookbooks around chef such as:
 
 ## Usage
 
-**rssh::default**
+**Add User via Node attribute**
+
+    "default_attributes": {
+      "rssh": {
+        "user": {
+          "foo": "foo-options"
+        }
+      }
+    }
+
+
+**Add User via LWRP**
+
+    rssh_user 'foo' do
+      options "foo-options"
+    end
+
+
+**Add to run_list**
 
 Just include `rssh` in your node's `run_list` or role's `run_list`:
 
