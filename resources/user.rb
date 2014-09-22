@@ -21,5 +21,5 @@ actions :add, :remove
 default_action :add
 
 attribute :name, :kind_of => String, :name_attribute => true
-attribute :options, :kind_of => String, :default => ""
-attribute :config_path, :kind_of => String, :default => '/etc/rssh.conf'
+attribute :options, :kind_of => String, :default => ''
+attribute :config_path, :kind_of => String, :default => node['rssh']['config_path']

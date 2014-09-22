@@ -1,16 +1,17 @@
 default['rssh'] = {
-  'allow' => [
+  'config_path' => '/etc/rssh.conf',
+  'allow'     => [
     'scp',
     'sftp',
     'rsync'
   ],
-  'user' => {
-#    'user_name' : "options"
-#e.g.'user_name' : "011:00001:/usr/local/my chroot"
-# Alternatively, you should use the `rssh_user` LWRP
+  'user'      => {
+    # 'user_name' : "options"
+    # e.g.'user_name' : "011:00001:/usr/local/my chroot"
+    # Alternatively, you should use the `rssh_user` LWRP
   },
-  'options' => {
+  'options'   => {
     'logfacility' => 'LOG_USER',
-    'umask' => '022'
+    'umask'       => '022'
   }
 }
