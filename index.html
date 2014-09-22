@@ -100,7 +100,25 @@ end
 </ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p><strong>rssh::default</strong></p>
+<p><strong>Add User via Node attribute</strong></p>
+
+<pre><code>"default_attributes": {
+  "rssh": {
+    "user": {
+      "foo": "foo-options"
+    }
+  }
+}
+</code></pre>
+
+<p><strong>Add User via LWRP</strong></p>
+
+<pre><code>rssh_user 'foo' do
+  options "foo-options"
+end
+</code></pre>
+
+<p><strong>Add to run_list</strong></p>
 
 <p>Just include <code>rssh</code> in your node's <code>run_list</code> or role's <code>run_list</code>:</p>
 
@@ -125,7 +143,7 @@ end
 </ol><h2>
 <a name="license-and-authors" class="anchor" href="#license-and-authors"><span class="octicon octicon-link"></span></a>License and Authors</h2>
 
-<p>Authors:: Virender Khatri, Dan Fruehauf and <a href="https://github.com/vkhatri/chef-solrcloud/graphs/contributors">Contributors</a></p>
+<p>Authors:: Virender Khatri, Dan Fruehauf and <a href="https://github.com/vkhatri/chef-rssh/graphs/contributors">Contributors</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
