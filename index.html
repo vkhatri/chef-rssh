@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Chef rssh : Chef Cookbook to manage rssh">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Chef rssh</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/vkhatri/chef-rssh">View on GitHub</a>
+
+          <h1 id="project_title">Chef rssh</h1>
+          <h2 id="project_tagline">Chef Cookbook to manage rssh</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/vkhatri/chef-rssh/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/vkhatri/chef-rssh/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="rssh-cookbook" class="anchor" href="#rssh-cookbook"><span class="octicon octicon-link"></span></a>rssh Cookbook</h1>
+
+<p>Chef Cookbook to manage rssh configuration.</p>
+
+<h2>
+<a name="repository" class="anchor" href="#repository"><span class="octicon octicon-link"></span></a>Repository</h2>
+
+<p><a href="https://github.com/vkhatri/chef-rssh">https://github.com/vkhatri/chef-rssh</a></p>
+
+<h2>
+<a name="platforms" class="anchor" href="#platforms"><span class="octicon octicon-link"></span></a>Platforms</h2>
+
+<ul>
+<li><p>Debian, Ubuntu</p></li>
+<li><p>CentOS 6+, Red Hat 6+, Fedora, Amazon</p></li>
+</ul><h2>
+<a name="recipes" class="anchor" href="#recipes"><span class="octicon octicon-link"></span></a>Recipes</h2>
+
+<ul>
+<li>
+<code>rssh::default</code>      - install and configure rssh</li>
+</ul><h2>
+<a name="rssh-user-lwrp" class="anchor" href="#rssh-user-lwrp"><span class="octicon octicon-link"></span></a>rssh user LWRP</h2>
+
+<p><strong>LWRP</strong></p>
+
+<p>You could and should use the user LWRP if you want to define rssh users from
+various cookbooks around chef such as:</p>
+
+<pre><code>rssh_user "some_user" do
+  options "some_options"
+end
+
+rssh_user "another_user" do
+  options "more options"
+end
+</code></pre>
+
+<p><strong>LWRP Options</strong></p>
+
+<ul>
+<li>
+<em>name</em> (required) - rssh user name</li>
+<li>
+<em>action</em> (optional) - default :add</li>
+<li>
+<em>options</em> (options) - rssh user options</li>
+<li>
+<em>config_path</em> (optional) - rssh config file path</li>
+</ul><h2>
+<a name="core-attributes" class="anchor" href="#core-attributes"><span class="octicon octicon-link"></span></a>Core Attributes</h2>
+
+<ul>
+<li>
+<code>default[:rssh][:config_path]</code> (default: '/etc/rssh.conf'): rssh config file path</li>
+<li>
+<code>default[:rssh][:options]</code> (default: 'LOG_USER'): Hash of rssh options attributes, e.g. {"option_name" =&gt; "option_value"}</li>
+<li>
+<code>default[:rssh][:options][:logfacility]</code> (default: 'LOG_USER'): syslog facility rssh logs to</li>
+<li>
+<code>default[:rssh][:options][:umask]</code> (default: '022'): umask value for file creations in the scp/sftp session</li>
+<li>
+<code>default[:rssh][:user]</code> (default: {}): rssh users options attribute, e.g. {"user_name" =&gt; "options"}</li>
+<li>
+<code>default[:rssh][:allow]</code> (default: ["scp", "rsync", "sftp"]): rssh allow* service options attribute</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p><strong>rssh::default</strong></p>
+
+<p>Just include <code>rssh</code> in your node's <code>run_list</code> or role's <code>run_list</code>:</p>
+
+<pre><code>{
+  "name":"my_name",
+  "run_list": [
+    "recipe[rssh::default]"
+  ]
+}
+</code></pre>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork the repository on Github</li>
+<li>Create a named feature branch (like <code>add_component_x</code>)</li>
+<li>Write your change</li>
+<li>Write tests for your change (if applicable)</li>
+<li>Run the tests, ensuring they all pass</li>
+<li>Submit a Pull Request using Github</li>
+</ol><h2>
+<a name="license-and-authors" class="anchor" href="#license-and-authors"><span class="octicon octicon-link"></span></a>License and Authors</h2>
+
+<p>Authors:: Virender Khatri, Dan Fruehauf and <a href="https://github.com/vkhatri/chef-solrcloud/graphs/contributors">Contributors</a></p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Chef rssh maintained by <a href="https://github.com/vkhatri">vkhatri</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
