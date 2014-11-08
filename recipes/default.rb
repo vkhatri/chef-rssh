@@ -20,6 +20,6 @@
 package 'rssh'
 
 # Generate the template anyway
-rssh_user "" do
-  options ""
+rssh_user '' do
+  options ''
 end
