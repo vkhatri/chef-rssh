@@ -3,22 +3,31 @@ rssh CHANGELOG
 
 This file is used to list changes made in each version of the rssh cookbook.
 
+0.1.5
+-----
+
+- Virender Khatri - added rubocop, food critic,  knife and spec lint tests
+
+- Virender Khatri - fixed for rubocop syntax
+
+- Virender Khatri - added rake tasks
+
 0.1.3
 -----
 
-- vkhatri - re formatted README
+- Virender Khatri - re formatted README
 
-- vkhatri - foodcritic ready
+- Virender Khatri - foodcritic ready
 
-- danfruehauf - updated README for lwrp
+- Dan Fruehauf - updated README for lwrp
 
-- danfruehauf - added user lwrp
+- Dan Fruehauf - added user lwrp
 
 
 0.1.1
 -----
 
-- vkhatri - initial release of rssh
+- Virender Khatri - initial release of rssh
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
