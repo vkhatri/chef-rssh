@@ -36,6 +36,7 @@ protected
 # Build and write the config template
 #
 def write_conf
+  rsshusers = rssh_users
   t = template(new_resource.config_path) do
     source 'rssh.conf.erb'
     cookbook 'rssh'
@@ -44,7 +45,7 @@ def write_conf
     mode '0644'
     variables(:options => node['rssh']['options'],
               :allow => node['rssh']['allow'],
-              :users => rssh_users
+              :users => rsshusers
              )
   end
   t.updated?
